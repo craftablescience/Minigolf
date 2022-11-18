@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://materials/grass.material" type="Material" id=1]
+[ext_resource path="res://materials/concrete.material" type="Material" id=2]
+
+[node name="Level" type="Spatial"]
+
+[node name="Spawn" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+
+[node name="Goal" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -34 )
+
+[node name="Overview" type="Camera" parent="."]
+transform = Transform( 0.707107, -0.183013, 0.683013, 0, 0.965926, 0.258819, -0.707107, -0.183013, 0.683013, 28, 10, 8 )
+
+[node name="Sun" type="DirectionalLight" parent="."]
+transform = Transform( 0.707107, -0.5, -0.5, 0, -0.707107, 0.707107, -0.707107, -0.5, -0.5, 0, 8, 0 )
+light_energy = 4.0
+
+[node name="LevelConcrete" type="CSGCombiner" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18 )
+material_override = ExtResource( 2 )
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="LevelConcrete"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1, 0 )
+depth = 52.0
+
+[node name="CSGBox3" type="CSGBox" parent="LevelConcrete"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1, 9 )
+depth = 34.0
+
+[node name="CSGBox5" type="CSGBox" parent="LevelConcrete"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 1, -16 )
+depth = 16.0
+
+[node name="CSGBox2" type="CSGBox" parent="LevelConcrete"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 25 )
+width = 16.0
+
+[node name="CSGBox6" type="CSGBox" parent="LevelConcrete"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1, -25 )
+width = 34.0
+
+[node name="CSGBox4" type="CSGBox" parent="LevelConcrete"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1, -7 )
+width = 16.0
+
+[node name="LevelGrass" type="CSGCombiner" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18 )
+material_override = ExtResource( 1 )
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="LevelGrass"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+width = 16.0
+depth = 48.0
+
+[node name="CSGBox2" type="CSGBox" parent="LevelGrass"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, -1, -16 )
+width = 16.0
+depth = 16.0

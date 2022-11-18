@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://models/hole.tscn" type="PackedScene" id=1]
+[ext_resource path="res://models/flagpole.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Goal.gd" type="Script" id=3]
+
+[sub_resource type="CylinderShape" id=1]
+height = 3.0
+radius = 1.4
+
+[node name="Goal" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="Area" type="Area" parent="."]
+collision_layer = 2
+collision_mask = 2
+input_ray_pickable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
+shape = SubResource( 1 )
+
+[node name="flagpole" parent="." instance=ExtResource( 2 )]
+
+[node name="hole" parent="." instance=ExtResource( 1 )]
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]

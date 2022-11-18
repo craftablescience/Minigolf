@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/UI.gd" type="Script" id=1]
+
+[node name="UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 11.0
+margin_top = 11.0
+margin_right = 112.0
+margin_bottom = 31.0
+text = "LOAD LEVEL 0"
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 13.0
+margin_top = 48.0
+margin_right = 25.0
+margin_bottom = 68.0
+text = "FIRE BALL"
+
+[node name="Label" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 11.0
+margin_top = 81.0
+margin_right = 189.0
+margin_bottom = 126.0
+bbcode_enabled = true
+bbcode_text = "[b]Congrats ya won idk[/b]"
+text = "Congrats ya won idk"
+
+[connection signal="pressed" from="Button" to="." method="_on_load_level_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_fire_pressed"]
